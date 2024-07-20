@@ -55,22 +55,29 @@ X_test = sc.transform(X_test)
 
 # Part 2 - Now let's make the ANN!
 
+import tensorflow as tf
+import keras
+from keras import layers
+
+
+
+
 # Importing the Keras libraries and packages
-from tensorflow.contrib.keras.api.keras.models import Sequential
-from tensorflow.contrib.keras.api.keras.layers import Dense
-from tensorflow.contrib.keras import backend
+# from tensorflow.contrib.keras.api.keras.models import Sequential
+# from tensorflow.contrib.keras.api.keras.layers import Dense
+# from tensorflow.contrib.keras import backend
 
 # Initialising the ANN
-classifier = Sequential()
+classifier = keras.Sequential()
 
 # Adding the input layer and the first hidden layer
-classifier.add(Dense(units=6, kernel_initializer='uniform', activation='relu', input_dim=11))
+classifier.add(layers.Dense(units=6, kernel_initializer='uniform', activation='relu', input_dim=11))
 
 # Adding the second hidden layer
-classifier.add(Dense(units=6, kernel_initializer='uniform', activation='relu'))
+classifier.add(layers.Dense(units=6, kernel_initializer='uniform', activation='relu'))
 
 # Adding the output layer
-classifier.add(Dense(units=1, kernel_initializer='uniform', activation='sigmoid'))
+classifier.add(layers.Dense(units=1, kernel_initializer='uniform', activation='sigmoid'))
 
 # Compiling the ANN
 classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
